@@ -15,7 +15,7 @@ export default function Hero() {
         </button>
       </div>
       <picture>
-        <source src={heroLg} media='(min-widht:800px)' />
+        <source srcSet={heroLg} media='(min-width:750px)'/>
         <img src={heroSm} alt="hero image" />
       </picture>
 

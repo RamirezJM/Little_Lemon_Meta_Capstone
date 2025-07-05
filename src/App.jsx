@@ -6,6 +6,7 @@ import Reserve from './Views/Reserve'
 
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='/Reserve' element={<Reserve/>}/>
         </Routes>
        </main>
+       <Footer/>
     </>
   )
 }

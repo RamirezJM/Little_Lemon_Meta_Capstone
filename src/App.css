@@ -56,6 +56,11 @@ h1, h2, h3, h4{
   align-items: center;
   gap: 1em;
  }
+ .hero-info>p{
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.5;
+ }
 
  
  .cta-btn{
@@ -74,6 +79,65 @@ h1, h2, h3, h4{
 
  }
 
+ .reviews{
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  background-color: var(--pink);
+  
+ }
+
+ h2{
+  text-align: center;
+ }
+ 
+
+blockquote{
+  border: solid 1px var(--green);
+  padding: .5em;
+  border-radius: 16px;
+}
+blockquote>p:first-child{
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: .5em;
+}
+
+
+
+
+
+footer{
+  background-color: var(--green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  color: var(--white);
+}
+footer>img{
+  width: clamp(20px, 10vw, 50px);
+}
+
+.contact{
+  text-align: center;
+  line-height: 1.5;
+}
+.social>p{
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: .5em;
+}
+.social>img{
+  width: 30px;
+}
+
+
+
  @media (min-width:750px){
   
   header{
@@ -90,11 +154,22 @@ h1, h2, h3, h4{
   }
   .hero>picture{
     order:1;
+    width: 80%;
   }  
   .hero>picture>img{
     border-radius: 5px;
-    width: 70%;
+    width: auto;
+    max-height: 300px;
+   
+  }
+  footer{
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
+  .social{
+    align-self: flex-start;
+    
+  }
 
  }
