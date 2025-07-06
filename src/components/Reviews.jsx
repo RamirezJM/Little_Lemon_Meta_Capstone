@@ -5,12 +5,12 @@ export default function Reviews() {
     <section className="reviews">
      
         <blockquote>
-          <p>"Absolutely delightful! The lemon dessert was heavenly, and the atmosphere was so charming. A true gem in the city!."</p>
+          <p>"Absolutely delightful! The chicken was heavenly, and the atmosphere was so charming. A true gem in the city!."</p>
           <p> -  Olivia P</p>
         </blockquote>
 
         <blockquote>
-          <p>"Little Lemon offers fantastic Mediterranean dishes. The grilled halloumi was a standout, and the service was top-notch."</p>
+          <p>"Little Lemon offers fantastic Mediterranean dishes. The Halloumi was a standout, and the service was top-notch."</p>
           <p> - Mark T.</p>
         </blockquote>
 
@@ -20,7 +20,7 @@ export default function Reviews() {
         </blockquote>
 
         <blockquote>
-          <p>"A wonderful experience from start to finish. The staff was incredibly friendly, and the pasta was perfectly cooked. Highly recommend!"</p>
+          <p>"A wonderful experience from start to finish. The staff was incredibly friendly, and the lamb was perfectly cooked. Highly recommend!"</p>
           <p>David C.</p>
         </blockquote>
 

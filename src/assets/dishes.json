@@ -1,0 +1,71 @@
+[
+  {
+    "id": "1",
+    "name":"Gyros",
+    "image":"/images/Gyros.webp",
+    "info":"Gyro meat is traditionally cooked on a vertical spit, but this home-cooked version calls for a boneless leg of lamb that’s seasoned with fresh oregano and steamed before roasting to keep the lemony, garlicky meat moist. It's served with a rainbow of fresh vegetables and a tangy yogurt-based tzatziki enlivened with fresh dill and cucumbers."
+  },
+  {
+    "id": "2",
+    "name":"Cypriot Fried Halloumi",
+    "image":"/images/Saganaki.webp",
+    "info":"Halloumi cheese is fried in clarified butter, then brushed in a spiced honey and served with lemon yogurt, brandy-basted nectarines, and fresh tomatoes in this sweet and savory appetizer."
+
+  },
+  {
+    "id": "3",
+    "name":"Lamb Shish Kebabs",
+    "image":"/images/lahem.webp",
+    "info":"These grilled lamb kebabs have been a mainstay at League of Kitchens cookouts for years. Cook the lamb evenly with equal-sized cubes; simply spice with paprika, salt, and pepper; and feel free to mix and match the vegetables on each skewer."
+
+  },
+  {
+    "id": "4",
+    "name":"Chicken with Lemon, Oregano, and Feta",
+    "image":"/images/chicken.webp",
+    "info":"With just a few ingredients, you’ll be amazed at how simple yet elegant and delicious this dish is. Chicken is drizzled with olive oil and lemon juice before it's sprinkled with oregano, salt, and pepper and roasted. It's then topped with feta and broiled."
+
+  },
+  {
+    "id": "5",
+    "name":"Seafood and Chicken Paella with Chorizo",
+    "image":"/images/seafood.webp",
+    "info":"If you ever make just one paella recipe, this is the one to try. Fresh chorizo, sliced dark meat chicken, and a seafood trio of shrimp, mussels, and cockles come together on a bed of saffron-infused arborio rice for this sumptuous Spanish recipe."
+
+  },
+  {
+    "id": "6",
+    "name":"Greek Salad with Shrimp and Kamut",
+    "image":"/images/greek.webp",
+    "info":"Kamut, an ancient variety of wheat, adds hearty chew to this entrée inspired by a classic Greek salad. Soak kamut overnight to help it cook faster, or for an even easier dish, cook the kamut in advance to trim day-of prep to 30 minutes."
+
+  },
+  {
+    "id": "7",
+    "name":"Celery Salad with Pine Nuts",
+    "image":"/images/Celery.webp",
+    "info":"Combined with crunchy homemade pita chips, buttery pine nuts, and a creamy feta spread, this fattoush-inspired salad features the earthy, anchoring flavor of crisp celery. It's accented by an herbaceous and lively dressing made from staples like lemon juice and red wine vinegar."
+
+  },
+  {
+    "id": "8",
+    "name":"Seared Salmon with Pistachio Pesto",
+    "image":"/images/salmon.webp",
+    "info":"This verdant pesto is made with a surprising variety of flavors — nutty pistachios, cool mint, spicy ginger and chile, bright lime zest, and salty Pecorino Romano cheese. The salmon requires just 15 minutes to cook, minimizing your time at the hot stove."
+
+  },
+  {
+    "id": "9",
+    "name":"Artichoke and Shrimp Gratins",
+    "image":"/images/Shrimp.webp",
+    "info":"A marriage between risotto and the velvety French onion sauce soubise, these miniature Italian- and French-inspired gratins are filled with sweet onions, artichoke hearts, and arborio rice."
+
+  },
+  {
+    "id": "10",
+    "name":"Vegetarian Stuffed Grape Leaves",
+    "image":"/images/grapes.webp",
+    "info":"These tangy, tender vegetarian rice and herb-stuffed grape leaves are a great appetizer from the Turkish region of Mugla. The rice filling is seasoned with fresh parsley and dill and slightly sweet cooked onions to balance the bright brined grape leaves."
+
+  }
+]
