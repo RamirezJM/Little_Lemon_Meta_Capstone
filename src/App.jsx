@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Home from './Views/Home'
 import About from './Views/About'
 import Menu from './Views/Menu'
@@ -10,7 +11,11 @@ import Footer from './components/Footer'
 import './App.css'
 
 function App() {
- 
+ const location = useLocation()
+ useEffect(() =>{
+  window.scrollTo(0, 0)
+ }, [location.pathname])
+
 
   return (
     <>

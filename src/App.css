@@ -172,9 +172,9 @@ blockquote>p:first-child{
   padding: 1em;
 }
 .About>img{
-  width: 80%;
-  max-width: 100%;
-  order: -1;
+  width: 100%;
+  min-width: 0;
+  order: -1; 
   border-radius: 5px;
 }
 .about-info>p:first-of-type{
@@ -185,7 +185,31 @@ blockquote>p:first-child{
   margin-block: 1em;
 }
 
+/*****  booking page  ******/
 
+.reservation-section{
+  width: 90%;
+  margin: 0 auto; 
+  padding: 1em;
+  background-image: url(./assets/restaurant.jpg) ;
+  background-color: rgba(0, 0, 0, .8);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-repeat: no-repeat; 
+  text-align: center;
+}
+
+.reservation-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border: solid 2px var(--pink);
+  border-radius: 5px;
+  background-color: var(--white); 
+ /*  width: 60%; */
+  /* margin: 0 auto; */
+  padding: 1em;
+}
 
 
 /******   footer  *******/
@@ -251,20 +275,27 @@ footer>img{
     align-self: flex-start;
     
   }
-  .About{
-    flex-direction: row;
-  }
-  .About>img{
-    order: 1;
-    /* width: 50%; */
-    width: auto;
-    flex: 0 0 20%;
-    /* max-height: 500px; */
+  .reservation-form{
+    width: 60%;
+    margin: 0 auto;
   }
 
  }
 
- @supports (-moz-appearance: none) {
+
+ @media (min-width:950px){
+  .About{
+    flex-direction: row;
+  }
+ .About>img{
+   order: 1;
+   width: 50%;
+   flex-shrink: 0;
+  
+  } 
+ }
+
+  @supports (-moz-appearance: none) {
     html {
         height: 100%;
     }
@@ -275,13 +306,4 @@ footer>img{
         min-height: 100vh;
       
     }
-
-    main { 
-        flex-grow: 1; 
-    }
-
-   
-    footer {
-        margin-top: 0;
-    }
-}
+  }

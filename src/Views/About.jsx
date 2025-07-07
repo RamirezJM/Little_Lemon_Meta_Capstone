@@ -2,7 +2,7 @@ import chefs from '../assets/chefs.jpg'
 
 export default function About() {
   return (
-    <main className="About">
+    <section className="About">
       <div className='about-info'>
         <h1>About Us</h1>
         <p>We are Mario and Adrian, two Italian brothers who moved to the United States to pursue our shared dream of owning a restaurant.</p>
@@ -10,6 +10,6 @@ export default function About() {
         <p>At Little Lemon, every dish tells a story of tradition and innovation. We meticulously select fresh, local ingredients, transforming classic Mediterranean recipes into delightful culinary experiences. From our vibrant salads to our rich, savory mains, we strive to transport you to the sun-drenched coasts with every bite, ensuring a truly unforgettable journey for your palate.</p>
       </div>
       <img src={chefs} alt="chefs owners" />
-    </main>
+    </section>
   )
 }
