@@ -1,22 +1,24 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useRef, useReducer } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import reservationSchema from '../utils/reservationSchema';
 import { fetchAPI, submitAPI } from '../utils/api'
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
   if (action.type === 'UPDATE_TIMES') {
     return fetchAPI(new Date(action.payload));
   }
-  return state; // O un estado inicial si no hay acción
+  return state;
 };
 const initializeTimes = () => {
-  return fetchAPI(new Date()); // Carga los horarios para la fecha actual al inicio
+  return fetchAPI(new Date());
 };
 
 export default function Reserve() {
 
   const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
-  const [submissionStatus, setSubmissionStatus] = useState(null); // 'success', 'error', null
+  const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const formRef = useRef(null);
 
   const initialValues = {
     firstName: '',
@@ -28,53 +30,55 @@ export default function Reserve() {
     occasion: '',
   };
 
-  // Manejador para cuando la fecha cambia (para actualizar los horarios)
   const handleDateChange = (e, setFieldValue) => {
     const selectedDate = e.target.value;
-    setFieldValue('date', selectedDate); // Actualiza el campo de fecha en Formik
-    dispatch({ type: 'UPDATE_TIMES', payload: selectedDate }); // Dispara la actualización de horarios
+    setFieldValue('date', selectedDate);
+    dispatch({ type: 'UPDATE_TIMES', payload: selectedDate });
   };
 
-  // Manejador para el envío del formulario
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    setSubmitting(true); // Indica que el formulario se está enviando
-    setSubmissionStatus(null); // Limpia el estado anterior
+    setSubmitting(true);
+    setSubmissionStatus(null);
+    setIsLoading(true);
 
-    try {
-      const success = await submitAPI(values); // Llama a tu API simulada
-      if (success) {
-        setSubmissionStatus('success');
-        resetForm(); // Limpia el formulario después del éxito
-        // Opcional: Redirigir al usuario a una página de confirmación
-        // navigate('/confirmation');
-      } else {
+    const delay = Math.random() * 1000 + 1000;
+
+    setTimeout(async () => {
+      try {
+        console.log('submitApi called')
+        console.log(values)
+        const success = await submitAPI(values);
+        console.log('submitApi finished')
+
+        if (success) {
+          setSubmissionStatus('success');
+          resetForm();
+        } else {
+          setSubmissionStatus('error');
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
         setSubmissionStatus('error');
+      } finally {
+        setSubmitting(false);
+        setIsLoading(false);
+
+        if (formRef.current) {
+          formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmissionStatus('error');
-    } finally {
-      setSubmitting(false); // Finaliza el envío
-    }
+    }, delay);
   };
 
   return (
     <section className="reservation-section">
-      {/* <h1>Booking your table</h1>
-      {submissionStatus === 'success' && (
-        <div className="success-message">Your booking has been successfully confirmed!</div>
-      )}
-      {submissionStatus === 'error' && (
-        <div className="error-message">There was an error processing your booking. Please try again.</div>
-      )} */}
-
       <Formik
         initialValues={initialValues}
         validationSchema={reservationSchema}
         onSubmit={handleSubmit}
       >
         {({ isSubmitting, setFieldValue, values }) => (
-          <Form className="reservation-form">
+          <Form className="reservation-form" ref={formRef}>
 
             <h1>Booking your table</h1>
             {submissionStatus === 'success' && (
@@ -83,7 +87,6 @@ export default function Reserve() {
             {submissionStatus === 'error' && (
               <div className="error-message">There was an error processing your booking. Please try again.</div>
             )}
-            {/* Campo de Fecha */}
             <label htmlFor="firstName">FirstName:</label>
             <Field type="text" id="firstName" name="firstName" required />
             <ErrorMessage name="firstName" component="div" className="error-text" />
@@ -105,7 +108,6 @@ export default function Reserve() {
             />
             <ErrorMessage name="date" component="div" className="error-text" />
 
-            {/* Campo de Hora */}
             <label htmlFor="time">Time:</label>
             <Field as="select" id="time" name="time" required>
               <option value="">Select an hour</option>
@@ -115,7 +117,6 @@ export default function Reserve() {
             </Field>
             <ErrorMessage name="time" component="div" className="error-text" />
 
-            {/* Campo de Comensales */}
             <label htmlFor="guests">Number of guests:</label>
             <Field
               type="number"
@@ -127,7 +128,6 @@ export default function Reserve() {
             />
             <ErrorMessage name="guests" component="div" className="error-text" />
 
-            {/* Campo de Ocasión */}
             <label htmlFor="occasion">Occasion (Optional):</label>
             <Field as="select" id="occasion" name="occasion">
               <option value="">None</option>
@@ -137,23 +137,12 @@ export default function Reserve() {
             </Field>
             <ErrorMessage name="occasion" component="div" className="error-text" />
 
-            {/* Campos de Contacto */}
-
-
-
-
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Sending...' : 'Make your reservation'}
+            <button type="submit" disabled={isSubmitting || isLoading} className='submit-btn'>
+              {isLoading ? 'Sending...' : 'Make your reservation'}
             </button>
           </Form>
         )}
       </Formik>
     </section>
   );
-
-
-
-
-
-
 }

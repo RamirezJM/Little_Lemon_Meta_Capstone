@@ -1,167 +1,235 @@
-body{
+body {
   scroll-behavior: smooth;
   font-family: 'Karla', sans-serif;
 }
-h1, h2, h3, h4{
+
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Markazi Text', serif;
+  text-align: center;
+  color: var(gray);
 }
- header{
+
+h1{
+  font-size: 2.2rem;
+}
+
+
+/****   HEADER AND MENU  ******/
+
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1em;
- }
- .title-logo{
-  width: clamp(200px, 15vw, 250px);
- }
+  box-shadow: 0 4px 6px -1px var(--tangerine), 0 2px 4px -2px var(--pink);
+}
 
- .link-list{
+.title-logo {
+  width: clamp(200px, 15vw, 250px);
+}
+
+.hamburger-menu {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  font-size: 1.5em;
+  z-index: 1000;
+}
+
+.hamburger-icon,
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #495E57;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-icon::before {
+  transform: translateY(-8px);
+}
+
+.hamburger-icon::after {
+  transform: translateY(8px);
+}
+
+.hamburger-menu[aria-expanded="true"] .hamburger-icon {
+  background-color: transparent;
+}
+
+.hamburger-menu[aria-expanded="true"] .hamburger-icon::before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.hamburger-menu[aria-expanded="true"] .hamburger-icon::after {
+  transform: translateY(0) rotate(-45deg);
+}
+
+nav {
+  display: none;
+}
+
+.active {
+  display: flex;
+}
+
+.link-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .5em;
-  
+  gap: 1em;
   list-style-type: none;
- }
+  padding: 1em;
+}
 
- .nav-link{
+.nav-link {
   text-decoration: none;
   color: var(--gray);
- }
- .hero{
+}
+
+/*****  HERO ******/
+
+.hero {
   display: flex;
-  flex-direction:column;
-  align-items: center; 
+  flex-direction: column;
+  align-items: center;
   gap: 1em;
   background-color: var(--green);
   color: var(--white);
   padding: 1em;
- }
+}
 
- .hero>picture{
- 
-  order: -1; 
+.hero>picture {
+  order: -1;
   width: 100%;
   text-align: center;
- }
+}
 
- .hero>picture>img{
+.hero>picture>img {
   width: 40%;
   border-radius: 50%;
-   
- }
- .hero-info{
+}
+
+.hero-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
- }
- .hero-info>p{
+}
+
+.hero-info>p {
   text-align: center;
   max-width: 80%;
   line-height: 1.5;
- }
+}
 
- 
- .cta-btn, .menu-btn{
+.cta-btn,
+.menu-btn,
+.submit-btn {
   background-color: var(--yellow);
   padding: .5em 1em;
   border: none;
   border-radius: 16px;
- 
- }
- .cta-btn>a, .dishes-section a{
+}
+
+
+.cta-btn>a,
+.dishes-section a,
+.submit-btn {
   color: var(--gray);
-   font-weight: 600;
-   font-size: 1.2rem;
-   text-decoration: none;
-   font-family: 'Karla', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-family: 'Karla', sans-serif;
+}
 
- }
+/*****  REVIEWS  ******/
 
- .reviews{
+.reviews {
   width: 90%;
   margin: 0 auto;
   padding: 1em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1em;
-  
-  
- }
+}
 
- h2{
-  text-align: center;
- }
- 
-
-blockquote{
+blockquote {
   border: solid 1px var(--green);
   padding: .5em;
   border-radius: 16px;
   background-color: var(--pink);
 }
-blockquote>p:first-child{
+
+blockquote>p:first-child {
   font-style: italic;
   font-weight: 500;
   margin-bottom: .5em;
 }
 
-.dishes-section{
+/*****   LANDING MENU  ********/
+
+.dishes-section {
   width: 90%;
   margin: 0 auto;
   padding: 1em;
   display: flex;
   flex-direction: column;
-  
   gap: 1em;
   border-bottom: solid 2px var(--tangerine);
 }
-.dishes-grid{
+
+.dishes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1em;
-  
 }
 
-.dish-card{
+.dish-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
   border: 2px solid var(--tangerine);
+  box-shadow: 3px 3px 2px var(--pink);
   border-radius: 5px;
   padding: 1em;
-
 }
 
-.dish-card>img{
+.dish-card>img {
   width: 100%;
   border-radius: 5px;
 }
 
-.menu-btn{
+.menu-btn {
   align-self: center;
 }
 
 
-/*****  menu page ******/
+/*****  MENU PAGE ******/
 
-.Menu{
+.Menu {
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 1em;
 }
 
-.Menu:first-child>p{
+.Menu:first-child>p {
   margin-block: 1em;
-
 }
 
-/*****   about page ******/
+/*****  ABOUT PAGE ******/
 
-.About{
+.About {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,50 +239,70 @@ blockquote>p:first-child{
   margin: 0 auto;
   padding: 1em;
 }
-.About>img{
+
+.About>img {
   width: 100%;
   min-width: 0;
-  order: -1; 
+  order: -1;
   border-radius: 5px;
 }
-.about-info>p:first-of-type{
+
+.about-info>p:first-of-type {
   font-size: 1.1rem;
   font-weight: 600;
 }
-.about-info p{
+
+.about-info p {
   margin-block: 1em;
 }
 
-/*****  booking page  ******/
+/*****  BOOKING PAGE  ******/
 
-.reservation-section{
-  width: 90%;
-  margin: 0 auto; 
+.reservation-section {
   padding: 1em;
-  background-image: url(./assets/restaurant.jpg) ;
+  background-image: url(./assets/restaurant.jpg);
   background-color: rgba(0, 0, 0, .8);
   background-blend-mode: multiply;
   background-size: cover;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   text-align: center;
 }
 
-.reservation-form{
+.reservation-form {
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1em;
   border: solid 2px var(--pink);
   border-radius: 5px;
-  background-color: var(--white); 
- /*  width: 60%; */
-  /* margin: 0 auto; */
+  background-color: var(--white);
   padding: 1em;
 }
 
+.reservation-form>input,
+select {
+  line-height: 1.5;
+  padding: .3rem;
+}
 
-/******   footer  *******/
+.error-text {
+  color: red;
+  font-size: .9rem;
+  font-weight: 600;
+}
 
-footer{
+.success-message, .error-message{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gray);
+  text-shadow: 1px 1px 1px var(--pink);
+}
+
+
+/******   FOOTER  *******/
+
+footer {
   background-color: var(--green);
   display: flex;
   flex-direction: column;
@@ -223,87 +311,107 @@ footer{
   padding: 1em;
   color: var(--white);
 }
-footer>img{
+
+footer>img {
   width: clamp(20px, 10vw, 50px);
 }
 
-.contact{
+.contact {
   text-align: center;
   line-height: 1.5;
 }
-.social>p{
+
+.social>p {
   font-size: 1.1rem;
   text-align: center;
   margin-bottom: .5em;
 }
-.social>img{
+
+.social>img {
   width: 30px;
 }
 
+/******  MEDIA QUERIES  *****/
 
+@media (min-width:750px) {
 
- @media (min-width:750px){
-  
-  header{
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .link-list{
-    flex-direction: row;
-  }
-  
-  
-  .hero{
-    flex-direction: row;
-  }
-  .hero>picture{
-    order:1;
-    width: 80%;
-  }  
-  .hero>picture>img{
-    border-radius: 5px;
-    width: auto;
-    max-height: 300px;
-   
-  }
-  footer{
+  header {
     flex-direction: row;
     justify-content: space-evenly;
   }
 
-  .social{
-    align-self: flex-start;
-    
-  }
-  .reservation-form{
-    width: 60%;
-    margin: 0 auto;
+  .hamburger-menu {
+    display: none;
   }
 
- }
+  nav {
+    display: block;
+  }
 
+  .link-list {
+    flex-direction: row;
+    gap: 1em;
+  }
 
- @media (min-width:950px){
-  .About{
+  .nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .hero {
     flex-direction: row;
   }
- .About>img{
-   order: 1;
-   width: 50%;
-   flex-shrink: 0;
-  
-  } 
- }
 
-  @supports (-moz-appearance: none) {
-    html {
-        height: 100%;
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      
-    }
+  .hero>picture {
+    order: 1;
+    width: 80%;
   }
+
+  .hero>picture>img {
+    border-radius: 5px;
+    width: auto;
+    max-height: 300px;
+  }
+
+  footer {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .social {
+    align-self: flex-start;
+  }
+
+  .reservation-form {
+    width: 50%;
+  }
+
+}
+
+
+@media (min-width:950px) {
+  .About {
+    flex-direction: row;
+  }
+
+  .About>img {
+    order: 1;
+    width: 50%;
+    flex-shrink: 0;
+  }
+}
+
+/****  FIREFOX SUPPORT  *****/
+
+@supports (-moz-appearance: none) {
+  html {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+  }
+}

@@ -22,7 +22,7 @@ const reservationSchema = yup.object().shape({
   time: yup
     .string()
     .required('Time is required')
-    .matches(/^(?:[01]\d|2[0-3]):(?:[0-5]\d)$/, 'Invalid time format (HH:MM)'), // Basic time format validation
+    .matches(/^(?:[01]\d|2[0-3]):(?:[0-5]\d)$/, 'Invalid time format (HH:MM)'), 
   guests: yup
     .number()
     .min(1, 'Must be at least 1 guest')
